@@ -135,9 +135,11 @@ class OnlineBase(object):
     def collect_pts(self, n, budget=-1):
         self.set_budget(budget)
         if n == -1:
+            print('collect_pts call if statement')
             assert budget > 0, 'exhaust without budget is doomed.'
             exhaust = True
         else:
+            print('collect_pts call else statement')
             exhaust = False
         if n > 0 and n % 2 != 0:
             logger.debug('n should be even, got %d' % n)

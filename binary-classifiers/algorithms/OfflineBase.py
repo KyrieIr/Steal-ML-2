@@ -17,7 +17,9 @@ class OfflineBase(object):
         self.y_test = y_test
 
         self.n_features = n_features
+        print('Here we are')
         self.oracle = oracle
+        print(oracle)
         self.clf2 = None
 
     def set_clf2(self, clf2):
@@ -35,10 +37,13 @@ class OfflineBase(object):
         assert self.clf2 is not None
         X_unif = np.random.uniform(-1, 1, (1000, self.n_features))
 
-        y_unif_ref = self.oracle(X_unif, count=False)
+        ##### is this even possible? ask dragos!
+        y_unif_ref = self.oracle(X_unif, count=False) 
+        # TODO self.oracle has no routines if oracle=='circle'
         y_unif_pred = self.clf2(X_unif)
 
         y_test_ref = self.oracle(self.X_test, count=False)
+        # TODO self.oracle has no routines if oracle=='circle'
         y_test_pred = self.clf2(self.X_test)
 
         L_unif = 1 - accuracy_score(y_unif_ref, y_unif_pred)
