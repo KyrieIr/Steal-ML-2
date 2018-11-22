@@ -13,7 +13,7 @@ a ML model.
 """
 
 class Adversary(object):
-	def __init__(self, b, strategy, API):
+	def __init__(self, b, n_features, strategy, API):
 		if self.NotValidBudget(b):
 			raise Exception('not a valid initialisation: budget')
 		self.b = b
@@ -28,7 +28,7 @@ class Adversary(object):
 		self.NEG = 0
 		self.POS = 1
 
-		self.n_features = 2
+		self.n_features = n_features
 
 		self.x_trn = []
 		self.y_trn = []
@@ -81,9 +81,10 @@ class Adversary(object):
 	# ---------------------------------Stealing the model------------------------------------
 
 	def FindInitialPoints(self):
+	# We will assume in this step that the data is scaled within the interval [-1,1] in each feature direction
 		try:
 			self.RemoveFromBudget(self.nbinit)
-			new_x = hp.UniformPoints(self.nbinit,[[-1.5, 1.5], [-1, 2]])
+			new_x = hp.UniformPoints(self.nbinit,self.n_features)
 			new_y = self.API.predict(new_x)
 			self.x_new.extend(new_x)
 			self.y_new.extend(new_y)
@@ -141,8 +142,8 @@ class Adversary(object):
 
 		#print(self.x_trn)
 		for i in range(0,m):
-			neg_x = self.RandomVector(2,self.NEG)
-			pos_x = self.RandomVector(2,self.POS)
+			neg_x = self.RandomVector(self.n_features,self.NEG)
+			pos_x = self.RandomVector(self.n_features,self.POS)
 
 			neg_x, pos_x = self.push_to_b(neg_x, pos_x)
 
