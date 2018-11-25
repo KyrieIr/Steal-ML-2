@@ -1,7 +1,8 @@
 import helper as hp
 import numpy as np
-from sklearn.cross_validation import StratifiedShuffleSplit
-from sklearn.grid_search import GridSearchCV
+import time
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 from scipy.spatial import distance
 import os
@@ -14,14 +15,11 @@ a ML model.
 
 class Adversary(object):
 	def __init__(self, b, n_features, strategy, API):
-		if self.NotValidBudget(b):
+		if NotValidBudget(b):
 			raise Exception('not a valid initialisation: budget')
 		self.b = b
 		self.q = 0
-		if self.NotValidStrategy(strategy):
-			raise Exception('not a valid initialisation: strategy')
-		self.strategy = strategy
-		self.SetAttributesStrategy()
+		self.SetStrategy(strategy)
 
 		self.API = API
 
@@ -39,25 +37,25 @@ class Adversary(object):
 		self.x_new = []
 		self.y_new = []
 
+		self.time_start = 0
+		self.time_end = 0
+
+		self.rundata = []
+
 		self.model = None
 
 	# -------------------------------Simple checkers and setters------------------------------
 
-	def NotValidStrategy(self,strategy):
-		if strategy != 'adaptive':
-			return True
-		else:
-			return False
-
-	def SetAttributesStrategy(self):
-		if (self.strategy == 'adaptive'):
+	def SetStrategy(self, strategy):
+		if strategy == 'monoAdaptive':
+			self.nbinit = 0
+			self.qprrnd = 2
+			self.strategy = strategy
+		elif strategy == 'adaptive':
+			self.strategy = 'adaptive'
 			self.SetRounds(1)
-
-	def NotValidBudget(self,b):
-		if b<=0:
-			return True
 		else:
-			return False
+			raise ValidStrategyException
 
 	def RemoveFromBudget(self,rm):
 		if (self.b-rm)<0:
@@ -71,8 +69,6 @@ class Adversary(object):
 		assert (r<self.b), "the number of rounds must be less than the number of queries" 
 		self.rounds = r # total number of rounds
 		self.qprrnd = np.floor(self.b/self.rounds) # number of queries per round
-		self.nbinit = self.qprrnd + self.b % self.rounds # number of queries in the initial round
-		print('nbinit', self.nbinit)
 
 	def SetValidationSet(self, x_val, y_val):
 		self.x_val = x_val
@@ -83,21 +79,30 @@ class Adversary(object):
 	def FindInitialPoints(self):
 	# We will assume in this step that the data is scaled within the interval [-1,1] in each feature direction
 		try:
-			self.RemoveFromBudget(self.nbinit)
-			new_x = hp.UniformPoints(self.nbinit,self.n_features)
-			new_y = self.API.predict(new_x)
-			self.x_new.extend(new_x)
-			self.y_new.extend(new_y)
+			posFound = 0
+			negFound = 0
+			while (posFound<3 or negFound<3 or (posFound+negFound)%(10*self.n_features)!=0 or (posFound+negFound)%(self.qprrnd)!=0): # must be more than the number of classes + 1
+				self.RemoveFromBudget(1)
+				new_x = hp.UniformPoints(1,self.n_features)
+				new_y = self.API.predict(new_x)
+				if (new_y==self.POS):
+					posFound +=1
+				if (new_y==self.NEG):
+					negFound +=1
+				self.x_new.extend(new_x)
+				self.y_new.extend(new_y)
 			self.x_trn.extend(self.x_new)
 			self.y_trn.extend(self.y_new)
-			return [new_x, new_y]
+
 		except NotEnoughBudget as exc:
 			print('You need at least enough budget for a first query')
 			raise exc
 			return None
 
 	def StealAPIModel(self, error):
+		print('queries, acc_trn, acc_val, time_step')
 		self.error = error
+		self.time_start = time.clock()
 		try:
 			self.FindInitialPoints()
 		except NotEnoughBudget as exc:
@@ -108,16 +113,19 @@ class Adversary(object):
 			try:
 				# update trainig data
 
-				cv = StratifiedShuffleSplit(self.y_trn, n_iter=5, test_size=.2) # creates an object that contains a partioned y_ex into 2 groups with 
+				cv = StratifiedShuffleSplit(test_size=.2) # creates an object thatcontains a partioned y_ex into 2 groups with 
 				# test_size of the all points in the test-grid, the rest in the train-set
 				grid = GridSearchCV(SVC(C=1e5), param_grid=param_grid, cv=cv, n_jobs=-1)
+
 
 				grid.fit(self.x_trn,self.y_trn)
 				self.model = grid
 				self.benchmark()
+				time_end = time.clock()
+
+
 
 				self.SearchNew()
-
 			# TODO Uniform Stop criterium?
 			# TODO find points on the decision boundary of our trained model. Use these points to blackbox the API
 			except (NotEnoughBudget, KeyboardInterrupt) as e:
@@ -152,10 +160,10 @@ class Adversary(object):
 			self.x_trn.extend([neg_x])
 
 
-			self.y_trn.extend(self.API.predict(neg_x))
+			self.y_trn.extend(self.API.predict(neg_x.reshape(1,-1)))
 
 			self.x_trn.extend([pos_x])
-			self.y_trn.extend(self.API.predict(pos_x))
+			self.y_trn.extend(self.API.predict(pos_x.reshape(1,-1)))
 
 		#print(self.x_trn)
 
@@ -171,7 +179,7 @@ class Adversary(object):
 		if label is not None:
 			while True:
 				a = hp.rv_uni(low,high,length)
-				l = self.model.predict(a)
+				l = self.model.predict(a.reshape(1,-1))
 				if l == label:
 					return a
 		else:
@@ -179,8 +187,8 @@ class Adversary(object):
 
 
 	def push_to_b(self, xn, xp):
-		assert self.model.predict(xn) == self.NEG
-		assert self.model.predict(xp) == self.POS
+		assert self.model.predict(xn.reshape(1,-1)) == self.NEG
+		assert self.model.predict(xp.reshape(1,-1)) == self.POS
 
 		d = distance.euclidean(xn, xp) / \
 			distance.euclidean(np.ones(self.n_features), np.zeros(self.n_features))
@@ -188,7 +196,7 @@ class Adversary(object):
 			return xn, xp
 
 		mid = .5 * np.add(xn, xp)
-		l = self.model.predict(mid)
+		l = self.model.predict(mid.reshape(1,-1))
 		if l == self.NEG:
 			return self.push_to_b(mid, xp)
 		else:
@@ -204,9 +212,34 @@ class Adversary(object):
 			score_trn = float(sum(y_self == self.y_trn))/float(len(self.x_trn))
 			y_self = self.model.predict(self.x_val)
 			score_val = float(sum(y_self == self.y_val))/float(len(self.x_val))
-			print('After {0} queries our model has score_trn {1} and score_val {2}'.format(self.q, score_trn, score_val))
+			self.time_end = time.clock()
+			time_spent = self.time_end - self.time_start			
+			print('%d   %f   %f   %f' %(self.q, score_trn, score_val, time_spent))
+
+			self.rundata.append([self.q, (1-score_val), time_spent])
+			self.time_start = time.clock()
+
+	def predict(self, X):
+		return self.model.predict(X)
+
+def NotValidStrategy(strategy):
+	if strategy != 'adaptive':
+		return True
+	elif strategy != 'monoAdaptive':
+		return True
+	else:
+		return False
+
+def NotValidBudget(b):
+	if b<=0:
+		return True
+	else:
+		return False
 
 class NotEnoughBudget(Exception):
+	pass
+
+class ValidStrategyException(Exception):
 	pass
 
 
