@@ -81,7 +81,8 @@ class Adversary(object):
 		try:
 			posFound = 0
 			negFound = 0
-			while (posFound<3 or negFound<3 or (posFound+negFound)%(10*self.n_features)!=0 or (posFound+negFound)%(self.qprrnd)!=0): # must be more than the number of classes + 1
+			#while (posFound<3 or negFound<3 or (posFound+negFound)%(10*self.n_features)!=0 or (posFound+negFound)%(self.qprrnd)!=0): # must be more than the number of classes + 1
+			while (posFound<3 or negFound<3 or (posFound+negFound)%self.qprrnd != 0):
 				self.RemoveFromBudget(1)
 				new_x = hp.UniformPoints(1,self.n_features)
 				new_y = self.API.predict(new_x)
@@ -213,14 +214,23 @@ class Adversary(object):
 			y_self = self.model.predict(self.x_val)
 			score_val = float(sum(y_self == self.y_val))/float(len(self.x_val))
 			self.time_end = time.clock()
-			time_spent = self.time_end - self.time_start			
-			print('%d   %f   %f   %f' %(self.q, score_trn, score_val, time_spent))
+			time_spent = self.time_end - self.time_start	
+			class0_val = np.count_nonzero(y_self == 0)
+			class1_val = np.count_nonzero(y_self == 1)
+			class0_trn = self.y_trn.count(0)
+			class1_trn = self.y_trn.count(1)
+			print('%d   %f   %f   %f   %d   %d   %d   %d' %(self.q, score_trn, score_val, time_spent, class0_val, class1_val, class0_trn, class1_trn))
 
 			self.rundata.append([self.q, (1-score_val), time_spent])
 			self.time_start = time.clock()
 
 	def predict(self, X):
 		return self.model.predict(X)
+
+	def GetAccuracy(self):
+		y_self = self.model.predict(self.x_val)
+		score_val = float(sum(y_self == self.y_val))/float(len(self.x_val))		
+		return score_val
 
 def NotValidStrategy(strategy):
 	if strategy != 'adaptive':

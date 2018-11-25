@@ -13,20 +13,23 @@ import numpy as np
 import helper as hp
 import matplotlib.pyplot as plt
 import time
-from sklearn.datasets import make_circles
-from sklearn.datasets import make_blobs
 from Adversary import Adversary
 from sklearn.metrics import accuracy_score
+from sklearn.datasets import load_breast_cancer
 
 
 
 def main():
 	t_tot_start = time.clock()
 	
-	n_features = 2
-	budget = (n_features + 2)*10
-	
-	X, Y = hp.ToySet(n_samples = 200, n_features=n_features)
+	data_cancer = load_breast_cancer()
+	X = data_cancer.data
+	Y = data_cancer.target
+	n_features = 30
+	budget = (n_features + 2)*100
+
+	print(np.max(X))
+	X = X/np.max(X)
 
 	clf = svm.SVC() # creates a support vector classification object. Default with an rbf kernel
 	clf.fit(X, Y) # fits the SVC to the data given
@@ -37,61 +40,44 @@ def main():
 	X_val = hp.UniformPoints(10000,n_features)
 	Y_val = clf.predict(X_val)
 
-	print("Accuracy of the model %f" % (accuracy_score(Y_clf, Y))) # prints the accuracy of the model on the training data
+	print("Accuracy of the model %f" % ( accuracy_score(Y, Y_clf))) # prints the accuracy of the model on the training data
 	print('Nb support vectors 0 : %d' %(clf.n_support_[0]))
 	print("Nb support vectors 1 : %d" %(clf.n_support_[1]))
-
 
 	font = {'family' : 'normal',
         'size'   : 16}
 
 	plt.rc('font', **font)
 
-	data ={}
+	averaging = 1
 	plt.figure()
-	qprrnd = [10,20]
-
+	qprrnd = [10,20,32, 50, 100]
+	data = np.zeros(len(qprrnd))
+	i = 0
 	for d in qprrnd:
-		adv = Adversary(budget,n_features,'adaptive',clf)
-		adv.SetRounds(budget/d)
-		adv.SetValidationSet(X_val,Y_val)
-		adv.StealAPIModel(.1)
-		data[d] = np.asarray(adv.rundata)
-
-	for i in range(1):
-		for d in qprrnd:
+		for j in range(averaging):
 			adv = Adversary(budget,n_features,'adaptive',clf)
 			adv.SetRounds(budget/d)
 			adv.SetValidationSet(X_val,Y_val)
 			adv.StealAPIModel(.1)
-			data[d] += np.asarray(adv.rundata)
-			print(data[d][:,0])
+			data[i] += (1-adv.GetAccuracy())
+			print[data]
+		i += 1
 
-	for d in qprrnd:
-		data[d] = data[d]/3
-		plt.semilogy(data[d][:,0],data[d][:,1],label=d)
+
+	data = data/averaging
+	print(data)
+	plt.semilogy(qprrnd, data)
 
 	print(data)
-	plt.legend()
-	plt.xlabel('queries', fontsize=22)
+	plt.xlabel('queries per round', fontsize=22)
 	plt.ylabel('error', fontsize=22)
-	plt.title('Error of different choices of d', fontsize=22)	
+	plt.title('Error in function of queries per round', fontsize=22)	
 	plt.grid()	
 	plt.show()
 
 	t_tot_end = time.clock()
 	print(t_tot_end-t_tot_start)
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__== '__main__':
