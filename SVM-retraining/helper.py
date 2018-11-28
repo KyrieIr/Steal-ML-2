@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 """
 This module contains some general python helper functions.
@@ -88,3 +90,27 @@ def rv_norm(size, n_features):
 
 def rv_uni(low,high,size):
 		return np.random.uniform(low, high, size)
+
+def boxplot_log(X, title):
+	fs = 22  # fontsize
+
+	# demonstrate how to toggle the display of different elements:
+	fig, ax = plt.subplots()
+	ax.boxplot(X, labels=['models'], showmeans=True)
+	ax.set_title(title, fontsize=fs)
+
+	ax.set_yscale('log')
+
+	fig.subplots_adjust(hspace=0.4)
+	plt.show()
+
+def boxplot(X, title):
+	fs = 22  # fontsize
+
+	# demonstrate how to toggle the display of different elements:
+	fig, ax = plt.subplots()
+	ax.boxplot(X, labels=['models'], showmeans=True)
+	ax.set_title(title, fontsize=fs)
+
+	fig.subplots_adjust(hspace=0.4)
+	plt.show()

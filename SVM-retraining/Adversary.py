@@ -78,38 +78,46 @@ class Adversary(object):
 
 	def FindInitialPoints(self):
 	# We will assume in this step that the data is scaled within the interval [-1,1] in each feature direction
-		try:
-			posFound = 0
-			negFound = 0
-			#while (posFound<3 or negFound<3 or (posFound+negFound)%(10*self.n_features)!=0 or (posFound+negFound)%(self.qprrnd)!=0): # must be more than the number of classes + 1
-			while (posFound<3 or negFound<3 or (posFound+negFound)%self.qprrnd != 0):
+		posFound = 0
+		negFound = 0
+		#while (posFound<3 or negFound<3 or (posFound+negFound)%(10*self.n_features)!=0 or (posFound+negFound)%(self.qprrnd)!=0): # must be more than the number of classes + 1
+		while (posFound<3 or negFound<3 or (posFound+negFound)%self.qprrnd != 0):
+			try: 
 				self.RemoveFromBudget(1)
-				new_x = hp.UniformPoints(1,self.n_features)
-				new_y = self.API.predict(new_x)
-				if (new_y==self.POS):
-					posFound +=1
-				if (new_y==self.NEG):
-					negFound +=1
-				self.x_new.extend(new_x)
-				self.y_new.extend(new_y)
-			self.x_trn.extend(self.x_new)
-			self.y_trn.extend(self.y_new)
-
-		except NotEnoughBudget as exc:
-			print('You need at least enough budget for a first query')
-			raise exc
-			return None
+			except NotEnoughBudget as exc:
+				print('was not able to find instances of both classes')
+				self.x_trn.extend(self.x_new)
+				self.y_trn.extend(self.y_new)
+				raise exc
+			new_x = hp.UniformPoints(1,self.n_features)
+			new_y = self.API.predict(new_x)
+			if (new_y==self.POS):
+				posFound +=1
+			if (new_y==self.NEG):
+				negFound +=1
+			self.x_new.extend(new_x)
+			self.y_new.extend(new_y)
+		self.x_trn.extend(self.x_new)
+		self.y_trn.extend(self.y_new)
 
 	def StealAPIModel(self, error):
 		print('queries, acc_trn, acc_val, time_step')
 		self.error = error
 		self.time_start = time.clock()
+		gamma_range = np.logspace(-15, 3, 19, base=2) # returns array with 19 elements ranging from 2^-15 untill 2^3
+		param_grid = dict(gamma=gamma_range)
 		try:
 			self.FindInitialPoints()
 		except NotEnoughBudget as exc:
-			raise exc
-		gamma_range = np.logspace(-15, 3, 19, base=2) # returns array with 19 elements ranging from 2^-15 untill 2^3
-		param_grid = dict(gamma=gamma_range)
+			cv = StratifiedShuffleSplit(test_size=.2) # creates an object thatcontains a partioned y_ex into 2 groups with 
+			# test_size of the all points in the test-grid, the rest in the train-set
+			grid = GridSearchCV(SVC(C=1e5), param_grid=param_grid, cv=cv, n_jobs=-1)
+
+			grid.fit(self.x_trn,self.y_trn)
+			self.model = grid			
+			print('Not enough budget for the initialisation')
+			self.benchmark()
+			return
 		while True:
 			try:
 				# update trainig data
@@ -130,7 +138,6 @@ class Adversary(object):
 			# TODO Uniform Stop criterium?
 			# TODO find points on the decision boundary of our trained model. Use these points to blackbox the API
 			except (NotEnoughBudget, KeyboardInterrupt) as e:
-				print(e)
 				print('Done')
 				break
 
@@ -149,22 +156,30 @@ class Adversary(object):
 		except NotEnoughBudget as e:
 			raise e
 
-		#print(self.x_trn)
-		for i in range(0,m):
-			neg_x = self.RandomVector(self.n_features,self.NEG)
-			pos_x = self.RandomVector(self.n_features,self.POS)
+		if not self.DivideSpace():
+			for i in range(0,m):
+				neg_x = self.RandomVector(self.n_features)
+				pos_x = self.RandomVector(self.n_features)
 
-			neg_x, pos_x = self.push_to_b(neg_x, pos_x)
+				self.x_trn.extend([neg_x])
+				self.y_trn.extend(self.API.predict(neg_x.reshape(1,-1)))
 
-			#print('1', neg_x)
+				self.x_trn.extend([pos_x])
+				self.y_trn.extend(self.API.predict(pos_x.reshape(1,-1)))				
 
-			self.x_trn.extend([neg_x])
+		else:
+			for i in range(0,m):
+				neg_x = self.RandomVector(self.n_features,self.NEG)
+				pos_x = self.RandomVector(self.n_features,self.POS)
+
+				neg_x, pos_x = self.push_to_b(neg_x, pos_x)
 
 
-			self.y_trn.extend(self.API.predict(neg_x.reshape(1,-1)))
+				self.x_trn.extend([neg_x])
+				self.y_trn.extend(self.API.predict(neg_x.reshape(1,-1)))
 
-			self.x_trn.extend([pos_x])
-			self.y_trn.extend(self.API.predict(pos_x.reshape(1,-1)))
+				self.x_trn.extend([pos_x])
+				self.y_trn.extend(self.API.predict(pos_x.reshape(1,-1)))
 
 		#print(self.x_trn)
 
@@ -202,6 +217,15 @@ class Adversary(object):
 			return self.push_to_b(mid, xp)
 		else:
 			return self.push_to_b(xn, mid)
+
+	def DivideSpace(self):
+		Y = self.model.predict(self.x_trn)
+		labels = [0, 1]
+		for label in labels:
+			if not (label in Y):
+				return False
+		return True
+
 
 	def benchmark(self):
 		if (len(self.x_val) == 0):
