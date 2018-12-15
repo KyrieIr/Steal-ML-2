@@ -199,7 +199,7 @@ class Adversary(object):
 				if l == label:
 					return a
 		else:
-			return rv_gen(length)
+			return hp.rv_uni(low, high, length)
 
 
 	def push_to_b(self, xn, xp):

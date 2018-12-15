@@ -27,9 +27,12 @@ def main():
 	Y = data_cancer.target
 	n_features = 30
 	budget = (n_features + 2)*100
+	budget = 1200
 
+	print(X)
 	print(np.max(X))
-	X = X/np.max(X)
+	X = np.tanh(X)
+	print(np.max(X))
 
 	clf = svm.SVC() # creates a support vector classification object. Default with an rbf kernel
 	clf.fit(X, Y) # fits the SVC to the data given
@@ -51,7 +54,7 @@ def main():
 
 	averaging = 1
 	plt.figure()
-	qprrnd = [10,20,32, 50, 100]
+	qprrnd = [2,4,6,10,20,30,40,50,60,80,100,120,150,200,300,400,600,1200]
 	data = np.zeros(len(qprrnd))
 	i = 0
 	for d in qprrnd:
@@ -67,7 +70,7 @@ def main():
 
 	data = data/averaging
 	print(data)
-	plt.semilogy(qprrnd, data)
+	plt.loglog(qprrnd, data)
 
 	print(data)
 	plt.xlabel('queries per round', fontsize=22)

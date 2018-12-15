@@ -1,0 +1,348 @@
+% Slides for the first presentation 14 december.
+
+% kuleuventheme2 by Janez Kren, September 2017, janez.kren@kuleuven.be, based on:
+% kuleuventheme 1.3 by Roland Pastorino, 2013 roland.pastorino@kuleuven.be / www.rolandpastorino.com
+
+\documentclass[11pt,t]{beamer}
+\usetheme{kuleuven2}	%THEME OPTIONS for LOGO: kul (default), kulak, lrd,    ; OPTIONS for TITLE PAGE: normal (default), sedes
+
+
+%%% OTHER SETTINGS
+\usefonttheme[onlymath]{serif}			% math font with serifs, delete to make it sans-serif
+\setbeamertemplate{footline}[body] 		% delete this line to remove footline bar on all frames
+%\usepackage[orientation=landscape,
+%size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+ %enable for widescreen 16:9 ratio
+%\titlegraphic{ \includegraphics[width=.2\paperwidth]{mytitlepagepic.png} } %optional title page image
+
+
+%%% ADDED PACKAGES:
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+%%% TITLE PAGE INFO:
+\title[Learning from a black-box]{Learning from a black-box} %[]] will appear in footline
+\subtitle{Intermediate presentation: Stealing an SVM}
+
+\author{Sebastiaan Jamaer
+\\ Promotor: pr. Smart
+\\ Supervisor: Dragos Rotaru, Mark Juarez, Eleftheria Makri}
+\date{ }
+
+
+
+\begin{document}
+\csname beamer@calculateheadfoot\endcsname %recalculate head and foot dimension
+
+
+ %%
+ %%  0. TITLE PAGE and TABLE OF CONTENT
+ %%
+% Title page
+\begin{frame}[plain,noframenumbering]
+	\titlepage
+\end{frame}
+	
+
+% Table of Contents
+\begin{frame}{Outline}
+	\hfill	{\large \parbox{.961\textwidth}{\tableofcontents[hideothersubsections]}}
+\end{frame}
+
+
+
+
+
+
+
+ %%
+ %%  SECTION 1 - INFO
+ %%
+\section{Machine Learning Basics}
+\begin{frame}[fragile]{Machine Learning Basics and APIs} 
+\textit{"Machine learning is a process that takes a certain knowledge $\mathcal{I}$ as input, and produces another kind of knowledge $\mathcal{O}$ as output"} \cite{DUMMY:1}.
+\begin{itemize}
+\item Unsupervised Learning: $\mathcal{I} = \mathcal{X}$
+\item Supervised Learning: $\mathcal{I} = (\mathcal{X},\mathcal{Y})$
+\begin{itemize}
+\item Classification: $\mathcal{O}: \mathcal{X}\rightarrow \mathcal{Y}$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Machine Learning Basics and APIs} 
+\textit{"Machine learning is a process that takes a certain knowledge $\mathcal{I}$ as input, and produces another kind of knowledge $\mathcal{O}$ as output"} \cite{DUMMY:1}.
+\begin{itemize}
+\item Unsupervised Learning: $\mathcal{I} = \mathcal{X}$
+\item Supervised Learning: $\mathcal{I} = (\mathcal{X},\mathcal{Y})$
+\begin{itemize}
+\item Classification: $\mathcal{O}: \mathcal{X}\rightarrow \mathcal{Y}$
+\end{itemize}
+\end{itemize}
+Example: Medical predicting
+\end{frame}
+
+\begin{frame}[fragile]{Machine Learning Basics} 
+\textit{"Machine learning is a process that takes a certain knowledge $\mathcal{I}$ as input, and produces another kind of knowledge $\mathcal{O}$ as output"} \cite{DUMMY:1}.
+\begin{itemize}
+\item Unsupervised Learning: $\mathcal{I} = \mathcal{X}$
+\item Supervised Learning: $\mathcal{I} = (\mathcal{X},\mathcal{Y})$
+\begin{itemize}
+\item Classification: $\mathcal{O}: \mathcal{X}\rightarrow \mathcal{Y}$
+\end{itemize}
+\end{itemize}
+Example: Medical predicting
+\vspace{24pt}
+
+Training of ML model can be expensive!
+
+$\implies$ need to keep your model/training data secret.
+\end{frame}
+
+\section{Support Vector Machine}
+\begin{frame}[fragile]{SVM: Binary SVM}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{../binary_SVM.png} 
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{SVM: Binary SVM}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{../binary_SVM_1.png} 
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{SVM: Binary SVM}
+Optimisation problem \cite{campbell2011learning}
+\begin{equation*}
+\max_{\alpha} W(\alpha)= \max_{\alpha} \Big(\sum_{i=1}^m \alpha_i - \frac{1}{2}\sum_{i,j=1}^m y_i y_j \alpha_i \alpha_j \mathbf{x}_i^T\mathbf{x}_j\Big) 
+\end{equation*}
+subject to
+\begin{equation*}
+0\leq\alpha_i\leq C
+\end{equation*}
+\begin{equation*}
+\sum_{i=1}^n \alpha_i y_i = 0
+\end{equation*}
+C is a hyperparameter.
+\end{frame}
+
+\begin{frame}[fragile]{Kernel function}
+Positive semi-definite function
+\begin{equation*}
+\mathbf{K}: \mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}
+\end{equation*}
+\begin{equation*}
+\mathbf{K}(\mathbf{x}_i,\mathbf{x}_j) = \psi (\mathbf{x}_i) \cdot_{\mathcal{F}} \psi (\mathbf{x}_j)
+\end{equation*}
+with $\psi: \mathcal{X} \rightarrow \mathcal{F}$ the mapping to a feature space.
+\end{frame}
+
+\begin{frame}[fragile]{Kernel function}
+Positive semi-definite function
+\begin{equation*}
+\mathbf{K}: \mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}
+\end{equation*}
+\begin{equation*}
+\mathbf{K}(\mathbf{x}_i,\mathbf{x}_j) = \psi (\mathbf{x}_i) \cdot_{\mathcal{F}} \psi (\mathbf{x}_j)
+\end{equation*}
+with $\psi: \mathcal{X} \rightarrow \mathcal{F}$ the mapping to a feature space.
+\begin{equation*}
+\max_{\alpha} W(\alpha)= \max_{\alpha} \Big(\sum_{i=1}^m \alpha_i - \frac{1}{2}\sum_{i,j=1}^m y_i y_j \alpha_i \alpha_j \mathbf{K}(\mathbf{x}_i,\mathbf{x}_j)\Big) 
+\end{equation*}
+subject to
+\begin{equation*}
+0\leq\alpha_i\leq C
+\end{equation*}
+\begin{equation*}
+\sum_{i=1}^n \alpha_i y_i = 0
+\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Kernel function}
+Positive semi-definite function
+\begin{equation*}
+\mathbf{K}: \mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}
+\end{equation*}
+\begin{equation*}
+\mathbf{K}(\mathbf{x}_i,\mathbf{x}_j) = \psi (\mathbf{x}_i) \cdot_{\mathcal{F}} \psi (\mathbf{x}_j)
+\end{equation*}
+with $\psi: \mathcal{X} \rightarrow \mathcal{F}$ the mapping to a feature space.
+
+Example: Simple scalar product kernel
+\begin{equation*}
+\mathbf{K}:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}:(\mathbf{x}_i,\mathbf{x}_j)\mapsto \mathbf{x}_i\cdot \mathbf{x}_j
+\end{equation*}
+
+Example: RBF-kernel
+\begin{equation*}
+\mathbf{K}:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}:(x_i,x_j)\mapsto \exp(-\gamma||\mathbf{x}_i - \mathbf{x}_j||_{\mathcal{X}}^2)
+\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Kernel function}
+Positive semi-definite function
+\begin{equation*}
+\mathbf{K}: \mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}
+\end{equation*}
+\begin{equation*}
+\mathbf{K}(\mathbf{x}_i,\mathbf{x}_j) = \psi (\mathbf{x}_i) \cdot_{\mathcal{F}} \psi (\mathbf{x}_j
+\end{equation*}
+with $\psi: \mathcal{X} \rightarrow \mathcal{F}$ the mapping to a feature space.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{data_2d_to_3d.png} 
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Hyperparameters}
+Hyperparameters: Kind of kernel, C, parameters of the kernel itself...
+\end{frame}
+
+\begin{frame}[fragile]{Hyperparameters}
+Hyperparameters: Kind of kernel, C, parameters of the kernel itself...
+Grid search:
+\begin{enumerate}
+\item Define parameterspace
+\item Split available data in a trainingset and a validationset ($\times k$)
+\item Try all combinations!
+\end{enumerate}
+Large computationcost.
+Better methods in \cite{Chapelle2002}
+\end{frame}
+
+\section{Stealing a ML-model with black-box acces}
+\begin{frame}[fragile]{Notation and assumptions}
+Describe what an adversary is and what the goal of this adversary is. 
+Describe the different kinds of information/reasons the adversary wants. Give an example
+\end{frame}
+\begin{frame}[fragile]{Strategies \cite{tramerstealing}}
+\begin{itemize}
+\item Lowd-Meek attack
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Strategies \cite{tramerstealing}}
+\begin{itemize}
+\item Lowd-Meek attack
+\item Uniform retraining
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Strategies \cite{tramerstealing}}
+\begin{itemize}
+\item Lowd-Meek attack
+\item Uniform retraining
+\item Line-search retraining
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Strategies \cite{tramerstealing}}
+\begin{itemize}
+\item Lowd-Meek attack
+\item Uniform retraining
+\item Line-search retraining
+\item Adaptive retraining
+\begin{itemize}
+\item Use $d$ queries each round
+\item Que points close to the boundary of $\hat{f}$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementation and experiments}
+implementation and the experiments. Also the figures for the number of rounds.
+\begin{itemize}
+\item Language: Python
+\item SVM-Package: scikit-learn
+\item Datasets: Circles, ToySet, cancer data set (30 features) scikit learn
+\item Algorithm inherently random $\rightarrow$ averaging
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Implementation and experiments}
+Dataset circles
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{../training_circle.png} 
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Implementation and experiments}
+ToySet (in 3D)
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../ToySet_3D_1.png}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../ToySet_3D_2.png}
+\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Implementation and experiments: Choice of $d$}
+Influence of queries per round on accuracy.
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../qprrnd_ToySet.png}
+  \caption{Accuracy improvements for different queries per round.}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../qprrnd_cancer.png}
+  \caption{Accuracy for the cancer dataset in function of queries per round}
+\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Implementation and experiments: Experiments}
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../error_circle.png}
+  \caption{Error on a model trained on the circles data set (2D) averaged over 1000 adversaries.}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{../error_toyset.png}
+  \caption{Error on a model trained on the toy data set (8D) averaged over 100 adversaries.}
+\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile,c]{Limitations}
+\begin{itemize}
+\item Computational complexity
+\item Input space $\mathcal{X}$ unknown
+\item Extension to mutliple class SVM difficult
+\end{itemize}
+\end{frame}
+
+\section{Next steps}
+\begin{frame}[fragile]{Extend approach to other ML algorithms}
+Consider extending to other ML algorithms.
+\end{frame}
+\begin{frame}[fragile]{Multi-Party Computing}
+introduction to multi-party computing and what we can infer from this multiparty computing
+\end{frame}
+
+\section{References}
+\begin{frame}{References}
+\bibliography{References}
+\bibliographystyle{ieeetr}
+\end{frame}
+
+\end{document}
