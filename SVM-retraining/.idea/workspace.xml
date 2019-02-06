@@ -2,29 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb50253-eaf5-475a-a73b-06d5d6970bbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multi_class.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_suite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdversaryM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SVM-retraining.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SVM-retraining.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Adversary.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adversary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adversary_m.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crack_cancer.py" beforeDir="false" afterPath="$PROJECT_DIR$/crack_cancer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crack_scikit.py" beforeDir="false" afterPath="$PROJECT_DIR$/crack_scikit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_class.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/ToySet.png" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/ToySet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/cancer.png" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/cancer.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/info_cancer_test.t" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/info_cancer_test.t" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/info_cancer_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/info_cancer_test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numRounds_acc/multi_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adversary_m.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/numberRounds_Acc_Toy.py" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/numberRounds_Acc_Toy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/numRounds_acc/numberRounds_Acc_cancer.py" beforeDir="false" afterPath="$PROJECT_DIR$/numRounds_acc/numberRounds_Acc_cancer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/old_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation" beforeDir="false" afterPath="$PROJECT_DIR$/presentation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_suite.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_suite.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../binary-classifiers/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../binary-classifiers/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../binary-classifiers/LRSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/../binary-classifiers/LRSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../binary-classifiers/LowBudgetComparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/../binary-classifiers/LowBudgetComparison.py" afterDir="false" />
@@ -1551,7 +1553,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crack_scikit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
+            <state relative-caret-position="304">
               <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -1564,30 +1566,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multi_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Adversary_m.py">
+        <entry file="file://$PROJECT_DIR$/AdversaryM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="107" column="8" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+            <state relative-caret-position="91">
+              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
                 <element signature="e#473#609#0" />
+                <element signature="e#1091#1109#0" />
                 <element signature="e#532#659#0" />
                 <element signature="e#817#945#0" />
                 <element signature="e#984#1117#0" />
-                <element signature="e#1154#1346#0" />
-                <element signature="e#1154#1215#2" />
-                <element signature="e#1364#1495#1" />
-                <element signature="e#2308#2339#0" />
+                <element signature="e#1665#1749#0" />
+                <element signature="e#1773#1872#0" />
+                <element signature="e#2078#2115#0" />
+                <element signature="e#1604#1780#0" />
+                <element signature="e#1604#1743#1" />
+                <element signature="e#2237#2821#0" />
+                <element signature="e#2228#2390#1" />
+                <element signature="e#1814#2161#0" />
+                <element signature="e#1814#1961#1" />
+                <element signature="e#2206#2303#0" />
+                <element signature="e#2344#2782#0" />
+                <element signature="e#2344#2475#1" />
+                <element signature="e#2841#3839#0" />
+                <element signature="e#2827#3258#1" />
+                <element signature="e#4218#4602#0" />
+                <element signature="e#3886#4215#0" />
+                <element signature="e#3886#4175#1" />
+                <element signature="e#4611#4838#0" />
+                <element signature="e#4700#4838#0" />
+                <element signature="e#4800#4838#0" />
+                <element signature="e#5524#6471#0" />
+                <element signature="e#6565#6579#0" />
+                <element signature="e#7851#7900#0" />
+                <element signature="e#8021#8211#0" />
+                <element signature="e#4851#4855#0" />
               </folding>
             </state>
           </provider>
@@ -1596,8 +1617,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_suite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="138">
+              <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -1627,11 +1648,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adversary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="272" selection-start-line="272" selection-end-line="274" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -1656,13 +1674,14 @@
         <option value="$PROJECT_DIR$/helper.py" />
         <option value="$PROJECT_DIR$/numRounds_acc/multi_class.py" />
         <option value="$PROJECT_DIR$/numRounds_acc/Adversary_m.py" />
-        <option value="$PROJECT_DIR$/test_suite.py" />
         <option value="$PROJECT_DIR$/multi_class.py" />
         <option value="$PROJECT_DIR$/Adversary_m.py" />
+        <option value="$PROJECT_DIR$/test_suite.py" />
+        <option value="$PROJECT_DIR$/AdversaryM.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-245" />
     <option name="y" value="-20" />
     <option name="width" value="1750" />
@@ -1695,7 +1714,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1714,70 +1733,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.multi_class (1)">
-    <configuration name="crack_scikit" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SVM-retraining" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crack_scikit.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="multi_class (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SVM-retraining" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multi_class.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="multi_class" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SVM-retraining" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numRounds_acc" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\sebas\Documents\thesis\Steal-ML-master-2\SVM-retraining\multi_class.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in test_suite.py">
     <configuration name="Unittests for test_suite.MyTestCase.test_add_trn" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="SVM-retraining" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1806,13 +1762,55 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for test_suite.MyTestCase.test_find_initial_points" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="SVM-retraining" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_suite.MyTestCase.test_find_initial_points&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_suite.MyTestCase.test_train" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="SVM-retraining" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_suite.MyTestCase.test_train&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_suite.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="SVM-retraining" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test_suite.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.multi_class (1)" />
+        <item itemvalue="Python tests.Unittests in test_suite.py" />
+        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_train" />
         <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_add_trn" />
+        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_find_initial_points" />
         <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_create_adversary" />
-        <item itemvalue="Python.multi_class" />
-        <item itemvalue="Python.crack_scikit" />
       </list>
     </recent_temporary>
   </component>
@@ -1830,42 +1828,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 20h 46m 20s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 13h 13m 52s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 20h 46m 43s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 13h 14m 02s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 20h 49m 12s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 20h 50m 47s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 21h 23m 11s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 21h 26m 25s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 21h 27m 00s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_create_adversary - 2019.02.05 at 21h 27m 59s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_add_trn - 2019.02.05 at 21h 30m 04s.xml">
+    <history-entry file="Unittests_for_test_suite_MyTestCase_test_add_trn - 2019.02.06 at 13h 33m 22s.xml">
       <configuration name="Unittests for test_suite.MyTestCase.test_add_trn" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_add_trn - 2019.02.05 at 21h 30m 15s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_add_trn" configurationId="tests" />
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 23m 00s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 25m 30s.xml">
+      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 32m 12s.xml">
+      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 32m 30s.xml">
+      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 43m 25s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 44m 18s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 44m 33s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2247191" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2247191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1876,50 +1874,40 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="x_new2" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>x_new</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>x_new2</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/crack_scikit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#305#541#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/unittest/__init__.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multi_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1940,33 +1928,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adversary.py">
+    <entry file="file://$PROJECT_DIR$/crack_scikit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="272" selection-start-line="272" selection-end-line="274" />
+        <state relative-caret-position="304">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#305#541#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adversary_m.py">
+    <entry file="file://$PROJECT_DIR$/Adversary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="107" column="8" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+        <state relative-caret-position="80">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multi_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_suite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdversaryM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
             <element signature="e#473#609#0" />
+            <element signature="e#1091#1109#0" />
             <element signature="e#532#659#0" />
             <element signature="e#817#945#0" />
             <element signature="e#984#1117#0" />
-            <element signature="e#1154#1346#0" />
-            <element signature="e#1154#1215#2" />
-            <element signature="e#1364#1495#1" />
-            <element signature="e#2308#2339#0" />
+            <element signature="e#1665#1749#0" />
+            <element signature="e#1773#1872#0" />
+            <element signature="e#2078#2115#0" />
+            <element signature="e#1604#1780#0" />
+            <element signature="e#1604#1743#1" />
+            <element signature="e#2237#2821#0" />
+            <element signature="e#2228#2390#1" />
+            <element signature="e#1814#2161#0" />
+            <element signature="e#1814#1961#1" />
+            <element signature="e#2206#2303#0" />
+            <element signature="e#2344#2782#0" />
+            <element signature="e#2344#2475#1" />
+            <element signature="e#2841#3839#0" />
+            <element signature="e#2827#3258#1" />
+            <element signature="e#4218#4602#0" />
+            <element signature="e#3886#4215#0" />
+            <element signature="e#3886#4175#1" />
+            <element signature="e#4611#4838#0" />
+            <element signature="e#4700#4838#0" />
+            <element signature="e#4800#4838#0" />
+            <element signature="e#5524#6471#0" />
+            <element signature="e#6565#6579#0" />
+            <element signature="e#7851#7900#0" />
+            <element signature="e#8021#8211#0" />
+            <element signature="e#4851#4855#0" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
