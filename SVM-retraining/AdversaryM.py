@@ -1,13 +1,12 @@
-from typing import Any, Union
-
 import numpy as np
-import math
 
 from sklearn import svm
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import balanced_accuracy_score
 
+from scipy.spatial.distance import euclidean
+from time import perf_counter
 
 #  The adversary works with numpy arrays to keep its data. Therefore, every time
 #  that there is a new training vector, the complete array is copied. This
@@ -17,10 +16,6 @@ from sklearn.metrics import balanced_accuracy_score
 class AdversaryM(object):
     def __init__(self, budget, n_features, labels, strategy, api, n_init=0,
                  min_n_lab=3):
-        """
-
-        :type min_n_lab: int
-        """
         self.set_budget(budget)
         self.set_n_features(n_features)
         self.set_labels(labels)
@@ -39,8 +34,7 @@ class AdversaryM(object):
 
         self.n_rounds = budget//(10*len(labels))
 
-        if n_init == 0:
-            self.n_init = math.ceil(budget/10)
+        self.n_init = n_init
         
         self.min_n_lab = min_n_lab
 
@@ -126,6 +120,12 @@ class AdversaryM(object):
         return self.api.predict(x)
 
     def pay(self, price):
+        """
+        Removes the given price from the budget. Raises a NotEnoughBudget exception if
+        the adversary does not have enough budget to pay the price.
+        :param price:
+        :return:
+        """
         if self.budget < price:
             raise NotEnoughBudget
         self.budget = self.budget-price
@@ -154,12 +154,14 @@ class AdversaryM(object):
         linear) to [-1,1].
         :return:
         """
+        t1 = perf_counter()
         if n == -1:
             n = self.n_init
         try:
-            x_new = self.get_random_instance(n)
-            y_new = self.query(x_new)
-            self.add_to_trn(x_new, y_new)
+            if n > 0:
+                x_new = self.get_random_instance(n)
+                y_new = self.query(x_new)
+                self.add_to_trn(x_new, y_new)
             for c in self.labels:
                 while np.count_nonzero(self.y_trn == c) < self.min_n_lab:
                     x_new = self.get_random_instance(1)
@@ -167,6 +169,8 @@ class AdversaryM(object):
                     self.add_to_trn(x_new, y_new)
         except NotEnoughBudget:
             raise Exception('Not enough budget to find initial points')
+        t2 = perf_counter()
+        self.benchmark_initial(t2 - t1)
 
     def find_q_rnd(self):
         # At the moment this function uses returns n_lab, maximum number of rounds
@@ -190,14 +194,21 @@ class AdversaryM(object):
         self.add_to_trn(x_init, y_init)
 
     def steal_adaptive(self):
+        self.run_data = []
+        t1_tot = perf_counter()
         q_rnd = self.find_q_rnd()
         threshold = 10**(-2)
         self.train()
         run_out = False
         while not run_out:
             try:
+                t1 = perf_counter()
                 self.adaptive_round(q_rnd, threshold)
+                t2 = perf_counter()
+                self.benchmark_round(t2 - t1)
             except NotEnoughBudget:
+                t2_tot = perf_counter()
+                self.benchmark_final(t2_tot - t1_tot)
                 run_out = True
                 print('Adaptive stealing ended')
 
@@ -226,11 +237,24 @@ class AdversaryM(object):
                 self.add_to_trn(x, y)
 
     def push_to_boundary(self, x_c, x_r, threshold):
-        return x_c+x_r
+        distance = euclidean(x_c, x_r)
+        c = self.predict(x_c)
+        while distance > threshold:
+            x_m = (x_c + x_r)/2
+            c_m = self.predict(x_m)
+            if c_m == c:
+                x_c = x_m
+            else:
+                x_r = x_m
+            distance = euclidean(x_c, x_r)
+        return x_c
 
     def get_accuracy(self):
         return balanced_accuracy_score(self.predict(self.x_val), self.y_val)
-    
+
+    def get_accuracy_trn(self):
+        return balanced_accuracy_score(self.y_trn, self.predict(self.x_trn))
+
     def get_random_instance(self, n):
         """
         Give n random instance of the input space
@@ -238,6 +262,28 @@ class AdversaryM(object):
         :return: the instances
         """
         return 2*np.random.rand(n, self.n_features) - 1
+
+    def benchmark_initial(self, t):
+        n_trn = np.size(self.y_trn)
+        print('Number of training vectors: %d' % n_trn)
+        print('Budget left: %d' % self.budget)
+        print('Time initialisation: %f' % t)
+
+    def benchmark_round(self, t):
+        if len(self.x_val) == 0:
+            n_trn = np.size(self.y_trn)
+            score_trn = self.get_accuracy_trn()
+            print('{1:10d} {3:10d} {0:10.5f} {2:10.5f}'.format(score_trn, self.budget, t, n_trn))
+        else:
+            score_trn = self.get_accuracy_trn()
+            score_val = self.get_accuracy()
+            n_trn = np.size(self.y_trn)
+            print('%d   %d   % 5f   %f   %f' % (self.budget, n_trn, score_trn, score_val, t))
+
+            self.run_data.append([self.budget, (1 - score_val), t])
+
+    def benchmark_final(self, t):
+        pass
 
 
 class NotEnoughBudget(Exception):

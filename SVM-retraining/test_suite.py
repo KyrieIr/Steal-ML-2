@@ -10,7 +10,8 @@ import numpy as np
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
-        x, y = make_blobs(n_samples=1000, n_features=4, centers=3,
+        self.n_features = 4
+        x, y = make_blobs(n_samples=1000, n_features=self.n_features, centers=3,
                           cluster_std=2.0)
         #  rbf_feature = RBFSampler(gamma=0.1, n_components=100)
         #  x_features = rbf_feature.fit_transform(x)
@@ -24,7 +25,7 @@ class MyTestCase(unittest.TestCase):
         self.x = x
         self.y = y
         self.api = classifier
-        self.adv = AdversaryM(10000, 4, [0, 1, 2], 'adaptive', self.api)
+        self.adv = AdversaryM(10000, self.n_features, [0, 1, 2], 'adaptive', self.api)
 
     def test_create_adversary(self):
         try:
@@ -65,7 +66,7 @@ class MyTestCase(unittest.TestCase):
     def test_find_initial_points(self):
         self.assertTrue(np.size(self.adv.x_trn) == 0)
         self.assertTrue(np.size(self.adv.y_trn) == 0)
-        self.adv.find_initial_points(10)
+        self.adv.find_initial_points()
         self.assertTrue(self.adv.x_trn.shape[0] >= 10)
         self.assertTrue(self.adv.y_trn.size >= 10)
 
@@ -77,6 +78,17 @@ class MyTestCase(unittest.TestCase):
         self.adv.set_validation(self.x, self.y)
         print(self.adv.get_accuracy())
         self.assertTrue(self.adv.get_accuracy() > 0.9)
+
+    def test_adaptive(self):
+        adv = self.adv
+        try:
+            adv.set_budget(100*self.n_features)
+            adv.find_initial_points()
+            adv.steal_adaptive()
+            adv.set_validation(self.x, self.y)
+            print(adv.get_accuracy())
+        except Exception:
+            self.fail()
 
 
 if __name__ == '__main__':

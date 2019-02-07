@@ -228,7 +228,7 @@ class Adversary(object):
 
 
 	def benchmark(self):
-		if (len(self.x_val) == 0):
+		if len(self.x_val) == 0:
 			y_self = self.model.predict(self.x_trn)
 			score = float(sum(y_self == self.y_trn))/float(len(self.x_trn))
 			print('After {0} queries our model has a score {1}'.format(self.q, score))

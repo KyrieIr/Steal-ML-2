@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb50253-eaf5-475a-a73b-06d5d6970bbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdversaryM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SVM-retraining.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SVM-retraining.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Adversary.py" beforeDir="false" afterPath="$PROJECT_DIR$/Adversary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adversary_m.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdversaryM.py" beforeDir="false" afterPath="$PROJECT_DIR$/AdversaryM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crack_cancer.py" beforeDir="false" afterPath="$PROJECT_DIR$/crack_cancer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crack_scikit.py" beforeDir="false" afterPath="$PROJECT_DIR$/crack_scikit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper.py" afterDir="false" />
@@ -1553,7 +1552,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crack_scikit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="416">
               <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -1567,60 +1566,71 @@
         <entry file="file://$PROJECT_DIR$/multi_class.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AdversaryM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#473#609#0" />
-                <element signature="e#1091#1109#0" />
-                <element signature="e#532#659#0" />
-                <element signature="e#817#945#0" />
-                <element signature="e#984#1117#0" />
-                <element signature="e#1665#1749#0" />
-                <element signature="e#1773#1872#0" />
-                <element signature="e#2078#2115#0" />
-                <element signature="e#1604#1780#0" />
-                <element signature="e#1604#1743#1" />
-                <element signature="e#2237#2821#0" />
-                <element signature="e#2228#2390#1" />
-                <element signature="e#1814#2161#0" />
-                <element signature="e#1814#1961#1" />
-                <element signature="e#2206#2303#0" />
-                <element signature="e#2344#2782#0" />
-                <element signature="e#2344#2475#1" />
-                <element signature="e#2841#3839#0" />
-                <element signature="e#2827#3258#1" />
-                <element signature="e#4218#4602#0" />
-                <element signature="e#3886#4215#0" />
-                <element signature="e#3886#4175#1" />
-                <element signature="e#4611#4838#0" />
-                <element signature="e#4700#4838#0" />
-                <element signature="e#4800#4838#0" />
-                <element signature="e#5524#6471#0" />
-                <element signature="e#6565#6579#0" />
-                <element signature="e#7851#7900#0" />
-                <element signature="e#8021#8211#0" />
-                <element signature="e#4851#4855#0" />
-              </folding>
+              <caret line="5" column="20" selection-start-line="5" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AdversaryM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1">
+              <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#249#329#0" />
+                <element signature="e#602#647#1" />
+                <element signature="e#1216#1352#0" />
+                <element signature="e#1388#1406#0" />
+                <element signature="e#1445#1574#0" />
+                <element signature="e#1617#1747#0" />
+                <element signature="e#1786#1921#0" />
+                <element signature="e#1962#2173#0" />
+                <element signature="e#2059#2173#0" />
+                <element signature="e#2219#2256#0" />
+                <element signature="e#2292#2555#0" />
+                <element signature="e#2292#2431#1" />
+                <element signature="e#2586#3592#0" />
+                <element signature="e#2586#2818#1" />
+                <element signature="e#3626#3973#0" />
+                <element signature="e#3626#3773#1" />
+                <element signature="e#4063#4160#0" />
+                <element signature="e#4054#4210#1" />
+                <element signature="e#4156#4602#0" />
+                <element signature="e#4156#4287#1" />
+                <element signature="e#4653#5084#1" />
+                <element signature="e#5434#5809#0" />
+                <element signature="e#5447#5570#0" />
+                <element signature="e#5324#5533#0" />
+                <element signature="e#5402#5533#0" />
+                <element signature="e#5673#6057#0" />
+                <element signature="e#6118#6447#0" />
+                <element signature="e#6118#6407#1" />
+                <element signature="e#6858#7826#0" />
+                <element signature="e#7276#7423#0" />
+                <element signature="e#7542#7689#0" />
+                <element signature="e#7898#7926#0" />
+                <element signature="e#8043#8228#0" />
+                <element signature="e#7941#8009#0" />
+                <element signature="e#9029#9061#0" />
+                <element signature="e#8061#8251#0" />
+                <element signature="e#8061#8195#1" />
+                <element signature="e#9067#9071#0" />
+                <element signature="e#8292#8296#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_suite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+            <state relative-caret-position="218">
+              <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#2367#2613#0" />
+                <element signature="e#2649#2923#0" />
               </folding>
             </state>
           </provider>
@@ -1629,7 +1639,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
+            <state relative-caret-position="80">
               <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -1648,8 +1658,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adversary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-end-line="6" />
+            <state relative-caret-position="1180">
+              <caret line="234" column="13" lean-forward="true" selection-start-line="234" selection-start-column="13" selection-end-line="234" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1676,8 +1689,9 @@
         <option value="$PROJECT_DIR$/numRounds_acc/Adversary_m.py" />
         <option value="$PROJECT_DIR$/multi_class.py" />
         <option value="$PROJECT_DIR$/Adversary_m.py" />
-        <option value="$PROJECT_DIR$/test_suite.py" />
+        <option value="$PROJECT_DIR$/Adversary.py" />
         <option value="$PROJECT_DIR$/AdversaryM.py" />
+        <option value="$PROJECT_DIR$/test_suite.py" />
       </list>
     </option>
   </component>
@@ -1714,7 +1728,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1734,6 +1748,20 @@
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Unittests in test_suite.py">
+    <configuration name="Unittests for test_suite.MyTestCase.test_adaptive" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="SVM-retraining" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_suite.MyTestCase.test_adaptive&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests for test_suite.MyTestCase.test_add_trn" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="SVM-retraining" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1745,20 +1773,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_suite.MyTestCase.test_add_trn&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for test_suite.MyTestCase.test_create_adversary" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="SVM-retraining" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_suite.MyTestCase.test_create_adversary&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -1807,10 +1821,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Unittests in test_suite.py" />
+        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_adaptive" />
+        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_find_initial_points" />
         <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_train" />
         <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_add_trn" />
-        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_find_initial_points" />
-        <item itemvalue="Python tests.Unittests for test_suite.MyTestCase.test_create_adversary" />
       </list>
     </recent_temporary>
   </component>
@@ -1828,34 +1842,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 13h 13m 52s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 05m 37s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 13h 14m 02s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 06m 17s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_add_trn - 2019.02.06 at 13h 33m 22s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_add_trn" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 23m 00s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 06m 49s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 25m 30s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 32m 12s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_suite_MyTestCase_test_train - 2019.02.06 at 16h 32m 30s.xml">
-      <configuration name="Unittests for test_suite.MyTestCase.test_train" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 43m 25s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 07m 34s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 44m 18s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 09m 09s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_suite_py - 2019.02.06 at 16h 44m 33s.xml">
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 10m 15s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 10m 54s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 11m 26s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 12m 38s.xml">
+      <configuration name="Unittests in test_suite.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_suite_py - 2019.02.07 at 14h 13m 00s.xml">
       <configuration name="Unittests in test_suite.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -1868,13 +1882,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1911,9 +1925,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/crack_scikit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#305#541#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
+        <state relative-caret-position="80">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -1928,77 +1953,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crack_scikit.py">
+    <entry file="file://$PROJECT_DIR$/multi_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        <state relative-caret-position="80">
+          <caret line="5" column="20" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdversaryM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#305#541#1" />
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#249#329#0" />
+            <element signature="e#602#647#1" />
+            <element signature="e#1216#1352#0" />
+            <element signature="e#1388#1406#0" />
+            <element signature="e#1445#1574#0" />
+            <element signature="e#1617#1747#0" />
+            <element signature="e#1786#1921#0" />
+            <element signature="e#1962#2173#0" />
+            <element signature="e#2059#2173#0" />
+            <element signature="e#2219#2256#0" />
+            <element signature="e#2292#2555#0" />
+            <element signature="e#2292#2431#1" />
+            <element signature="e#2586#3592#0" />
+            <element signature="e#2586#2818#1" />
+            <element signature="e#3626#3973#0" />
+            <element signature="e#3626#3773#1" />
+            <element signature="e#4063#4160#0" />
+            <element signature="e#4054#4210#1" />
+            <element signature="e#4156#4602#0" />
+            <element signature="e#4156#4287#1" />
+            <element signature="e#4653#5084#1" />
+            <element signature="e#5434#5809#0" />
+            <element signature="e#5447#5570#0" />
+            <element signature="e#5324#5533#0" />
+            <element signature="e#5402#5533#0" />
+            <element signature="e#5673#6057#0" />
+            <element signature="e#6118#6447#0" />
+            <element signature="e#6118#6407#1" />
+            <element signature="e#6858#7826#0" />
+            <element signature="e#7276#7423#0" />
+            <element signature="e#7542#7689#0" />
+            <element signature="e#7898#7926#0" />
+            <element signature="e#8043#8228#0" />
+            <element signature="e#7941#8009#0" />
+            <element signature="e#9029#9061#0" />
+            <element signature="e#8061#8251#0" />
+            <element signature="e#8061#8195#1" />
+            <element signature="e#9067#9071#0" />
+            <element signature="e#8292#8296#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Adversary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multi_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-end-line="6" />
+        <state relative-caret-position="1180">
+          <caret line="234" column="13" lean-forward="true" selection-start-line="234" selection-start-column="13" selection-end-line="234" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="71" column="25" lean-forward="true" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+        <state relative-caret-position="218">
+          <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AdversaryM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#473#609#0" />
-            <element signature="e#1091#1109#0" />
-            <element signature="e#532#659#0" />
-            <element signature="e#817#945#0" />
-            <element signature="e#984#1117#0" />
-            <element signature="e#1665#1749#0" />
-            <element signature="e#1773#1872#0" />
-            <element signature="e#2078#2115#0" />
-            <element signature="e#1604#1780#0" />
-            <element signature="e#1604#1743#1" />
-            <element signature="e#2237#2821#0" />
-            <element signature="e#2228#2390#1" />
-            <element signature="e#1814#2161#0" />
-            <element signature="e#1814#1961#1" />
-            <element signature="e#2206#2303#0" />
-            <element signature="e#2344#2782#0" />
-            <element signature="e#2344#2475#1" />
-            <element signature="e#2841#3839#0" />
-            <element signature="e#2827#3258#1" />
-            <element signature="e#4218#4602#0" />
-            <element signature="e#3886#4215#0" />
-            <element signature="e#3886#4175#1" />
-            <element signature="e#4611#4838#0" />
-            <element signature="e#4700#4838#0" />
-            <element signature="e#4800#4838#0" />
-            <element signature="e#5524#6471#0" />
-            <element signature="e#6565#6579#0" />
-            <element signature="e#7851#7900#0" />
-            <element signature="e#8021#8211#0" />
-            <element signature="e#4851#4855#0" />
+            <element signature="e#2367#2613#0" />
+            <element signature="e#2649#2923#0" />
           </folding>
         </state>
       </provider>
