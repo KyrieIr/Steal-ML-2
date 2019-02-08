@@ -1,5 +1,5 @@
 import numpy as np
-
+import sys
 from sklearn import svm
 from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.model_selection import GridSearchCV
@@ -164,10 +164,15 @@ class AdversaryM(object):
                 self.add_to_trn(x_new, y_new)
             for c in self.labels:
                 while np.count_nonzero(self.y_trn == c) < self.min_n_lab:
+                    if c == 5:
+                        print('test')
                     x_new = self.get_random_instance(1)
                     y_new = self.query(x_new)
                     self.add_to_trn(x_new, y_new)
         except NotEnoughBudget:
+            t2 = perf_counter()
+            self.benchmark_failed_initial(t2 -t1)
+            sys.exit()
             raise Exception('Not enough budget to find initial points')
         t2 = perf_counter()
         self.benchmark_initial(t2 - t1)
@@ -268,6 +273,12 @@ class AdversaryM(object):
         print('Number of training vectors: %d' % n_trn)
         print('Budget left: %d' % self.budget)
         print('Time initialisation: %f' % t)
+
+    def benchmark_failed_initial(self, t):
+        print('FAILED: Not enough budget to find initial points')
+        print('  Labels that are present:')
+        for c in self.labels:
+            print('Label {0:5d} is found {1:5d} times'.format(c, (self.y_trn == c).sum()))
 
     def benchmark_round(self, t):
         if len(self.x_val) == 0:

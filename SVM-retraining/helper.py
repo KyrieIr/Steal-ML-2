@@ -114,3 +114,17 @@ def boxplot(X, title):
 
 	fig.subplots_adjust(hspace=0.4)
 	plt.show()
+
+def benchmark_failed_initial(y, labels):
+    print('FAILED: Not enough budget to find initial points')
+    print('  Labels that are present:')
+    for c in labels:
+        print('Label {0:5d} is found {1:5d} times'.format(c, (y == c).sum()))
+
+def get_random_instance(n, n_features):
+    """
+    Give n random instance of the input space
+    :param n: number of instances
+    :return: the instances
+    """
+    return 2*np.random.rand(n, n_features) - 1
